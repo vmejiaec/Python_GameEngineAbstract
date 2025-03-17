@@ -1,7 +1,8 @@
+from .interfaces.rectInterface import RectInterface
 from .adapters.pygame_keymap import KEY_MAP
 
 class Player:
-    def __init__(self, rect, speed):
+    def __init__(self, rect: RectInterface, speed):
         self.rect = rect
         self.color = (0,255,0) # Verde
         self.speed = speed

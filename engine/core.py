@@ -1,19 +1,20 @@
 from .settings import *
-from .adapters.pygame_adaper import PygameRenderer
-from .adapters.pygame_rect import PygameRect
-from .adapters.pygame_time import PygameTime
-from .player import Player
-from .event_manager import EventManager
-from .adapters.pygame_event_source import PygameEventSource
+from .interfaces.renderer import Renderer
+from .interfaces.time import TimeManager
+from .interfaces.event_source import EventSource
 from .adapters.pygame_keymap import KEY_MAP
 
+from .player import Player
+from .event_manager import EventManager
+
+
 class Game:
-    def __init__(self):
-        self.time_manager = PygameTime()
-        self.renderer = PygameRenderer()
-        self.player = Player(PygameRect(100,100,30,30),speed=5)
+    def __init__(self, player: Player, renderer: Renderer , time_manager:TimeManager, eventsource: EventSource):
+        self.time_manager = time_manager
+        self.renderer = renderer
+        self.player = player
         self.running = True
-        self.event_source = PygameEventSource()
+        self.event_source = eventsource
         self.event_manager = EventManager()
 
         # Registrarse al evento QUIT
