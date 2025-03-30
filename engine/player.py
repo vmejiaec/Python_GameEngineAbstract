@@ -9,6 +9,7 @@ class Player:
         self.velocity = [0, 0]
 
     def handle_event(self, event):
+        # Gestionar el tipo de evento
         if event.type == KEY_MAP["KEYDOWN"]:
             if event.key == KEY_MAP["LEFT"]:
                 self.velocity[0] = -self.speed
@@ -23,6 +24,8 @@ class Player:
                 self.velocity[0] = 0
             if event.key in (KEY_MAP["UP"], KEY_MAP["DOWN"]):
                 self.velocity[1] = 0
+        # Movel al Player
+        self.move()
 
     def move(self):
         self.rect.move( self.velocity[0], self.velocity[1] )

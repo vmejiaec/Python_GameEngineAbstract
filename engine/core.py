@@ -31,7 +31,7 @@ class Game:
                 self.event_manager.notify("QUIT")
             elif event.type in [KEY_MAP["KEYDOWN"] ,KEY_MAP["KEYUP"]]:
                 self.event_manager.notify("KEY_EVENT", event)
-        self.player.move()
+
     
     def render(self):
         self.renderer.clear()
