@@ -3,9 +3,10 @@ from .interfaces.renderer import Renderer
 from .interfaces.time import TimeManager
 from .interfaces.event_source import EventSource
 from .adapters.pygame_keymap import KEY_MAP
+from .event_manager import EventManager
 
 from .player import Player
-from .event_manager import EventManager
+
 
 
 class Game:
